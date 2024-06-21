@@ -27,9 +27,9 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace = "com.example.flashChat"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    namespace = "com.rubenations.flashChat"
+    compileSdkVersion 34 // Explicitly set compileSdkVersion
+    ndkVersion "21.3.6528147" // Explicitly set ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -41,10 +41,10 @@ android {
         applicationId = "com.rubenations.flashChat"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdk = 23
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutterVersionCode.toInteger()
-        versionName = flutterVersionName
+        minSdkVersion 23 // Explicitly set minSdkVersion
+        targetSdkVersion 34 // Explicitly set targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
     }
 
     buildTypes {
@@ -58,4 +58,10 @@ android {
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
 }
